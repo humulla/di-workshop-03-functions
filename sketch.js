@@ -11,10 +11,14 @@ function setup() {
     // this is the outline of the shape
     stroke(0)
     // these are the shapes which will be shown on the canvas
-    triangle(0, 30, 40, 0, 80, 30)
+    
     // when this was changed from rectangle to square the shape changed but the size stayed the same
-    square(5, 30, 70)
-    roof(100, 100)
+    background(255)
+    house(5, 50, 40, 50)
+    house(100, 100, 80, 70)
+    house(mouseX,mouseY, 80, 90)
+    
+    
 
   }
   function square(x, y, size){
@@ -22,11 +26,13 @@ function setup() {
       rect(x, y, size, size)
   }
 
-  function roof(x, y) {
-    triangle(x, y, x+80, y, x+40, y-30)
+  function roof(x, y, height, width) {
+    triangle(x, y, x+height, y, x+width/2, y-width)
     // this is the x and y axis of the roof
   }
   
-  function house(x, y) {
+  function house(x, y, height, width) {
+    rect(x, y, height, width)
+    roof(x, y, height, width)
     // this is the x and y axis of the house    
   }
